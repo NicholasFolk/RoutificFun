@@ -19,6 +19,11 @@ describe("Full test | ", function(){
     expect(res).to.eq([0]);
   });
 
+  it("should return index zero for 1x1 matrix", function(){
+    var res = candyOrganizer([[0, 2]]);
+    expect(res).to.equal([1]);
+  });
+
   it("should return correct indices order for 3x3 matrix", function(){
     var data = [
       [3,2,0],
@@ -27,5 +32,16 @@ describe("Full test | ", function(){
     ]
     var res = candyOrganizer(data);
     expect(res).to.eq([0,2,1])
+  });
+
+  it("should return correct indices order for 3x3 matrix", function(){
+    var data = [
+      [3,2,0,5],
+      [0,3,10,6],
+      [1,2,5,1],
+      [3,5,2,1]
+    ]
+    var res = candyOrganizer(data);
+    expect(res).to.equal([3,2,1,0])
   });
 });
