@@ -36,12 +36,13 @@ describe("Full test | ", function(){
 
   it("should return correct indices order for 3x3 matrix", function(){
     var data = [
-      [3,2,0,5],
-      [0,3,10,6],
-      [1,2,5,1],
-      [3,5,2,1]
+      [3,2,5],
+      [0,3,10],
+      [1,2,5],
+      [3,5,2],
+      [1,1,0]
     ]
     var res = candyOrganizer(data);
-    expect(res).to.equal([3,2,1,0])
+    expect(res).to.equal([0,2,2,1,0])
   });
 });
