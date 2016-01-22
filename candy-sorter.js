@@ -8,7 +8,7 @@ var Candy = function(id, prefs) {
 	this.prefs = prefs;
 }
 
-/** 
+/**
 * Creates a list of candy objects
 */
 var createCandyList = function(candyGrid) {
@@ -19,14 +19,16 @@ var createCandyList = function(candyGrid) {
 	return candies;
 }
 
-/** 
+/**
 * Sorts candies based on diffList function
 */
 var sortCandies = function(candies) {
-	return candies.sort(diffList);
+	return candies.sort(function(a, b) {
+		return findDiff(a, tabooList) - findDiff(b, tabooList);
+	});
 }
 
-/** 
+/**
 * Adds candy and returns true if a bucket is filled
 */
 var addCandy = function(candy) {
@@ -37,7 +39,7 @@ var addCandy = function(candy) {
 			curMax = candy.prefs[i];
 			curInd = i;
 		}
-		 
+
 	}
 	candyBuckets[candy.id] = curInd;
 	bucketCounts[curInd]--;
@@ -48,7 +50,7 @@ var addCandy = function(candy) {
 	return false;
 }
 
-/** 
+/**
 * Initializes bucketCounts (for checking if buckets are full);
 * and candyBuckets (the array of bucket numbers to return to the user of the module)
 */
@@ -69,8 +71,8 @@ module.exports = function(candyGrid) {
 
 	n = candyGrid.length;
 	if (n === 0) {
-		// an empty candy grid was input 
-		return []; 
+		// an empty candy grid was input
+		return [];
 	}
 	k = candyGrid[0].length;
 	initBuckets();
