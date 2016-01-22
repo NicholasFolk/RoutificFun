@@ -1,4 +1,4 @@
-var candyOrganizer = require('candyOrganizer');
+var candyOrganizer = require('../candy-sorter');
 var expect = require('chai').expect;
 var Random = require('./utils/random');
 

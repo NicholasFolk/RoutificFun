@@ -1,7 +1,7 @@
 var expect = require('chai').expect;
 var findDiff = require('../util/findDiff');
 
-describe.only("Find Diff | ", function(){
+describe("Find Diff | ", function(){
   it("base cases", function(){
     expect(findDiff(null, null)).to.equal(null);
   });
